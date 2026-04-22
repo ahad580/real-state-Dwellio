@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Coded by Ahad.io
+              Copyright Logisol technologies
             </a>
           </p>
         </footer>

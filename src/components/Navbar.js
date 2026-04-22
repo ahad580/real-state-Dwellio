@@ -79,7 +79,6 @@ export default function Navbar() {
                 List Property
               </Link>
 
-              {/* ✅ PROFILE → ACCOUNT PAGE */}
               <Link
                 href="/account"
                 className="dw-icon-btn dw-desktop-only"
