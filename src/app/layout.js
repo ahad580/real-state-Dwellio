@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
           <p>
             © 2026 Dwellio •{" "}
             <a
-              href="https://ahad.io"
+              href="https://www.logisol.tech/"
               target="_blank"
               rel="noopener noreferrer"
             >
