@@ -8683,3 +8683,388 @@ a {
     align-items: flex-start;
   }
 }
+
+.agent-page-blur {
+  filter: blur(8px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.agent-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 18, 30, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 3000;
+}
+
+.agent-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 22px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.16);
+  padding: 24px;
+}
+
+.agent-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: #f3f4f6;
+  color: #111111;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.agent-modal-head h3 {
+  margin: 0 0 6px;
+  font-size: 26px;
+  color: #111111;
+}
+
+.agent-modal-head p {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #6b7280;
+}
+
+.agent-modal-agent {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.agent-modal-agent img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.agent-modal-agent h4 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  color: #111111;
+}
+
+.agent-modal-agent span {
+  display: block;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.agent-modal-agent a {
+  display: block;
+  text-decoration: none;
+  font-size: 14px;
+  color: #465df1;
+  margin-bottom: 3px;
+}
+
+.agent-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.agent-modal-form input,
+.agent-modal-form textarea {
+  width: 100%;
+  border: 1px solid #d9dee8;
+  border-radius: 12px;
+  padding: 14px 15px;
+  font-size: 14px;
+  outline: none;
+  background: #ffffff;
+  color: #111111;
+  font-family: inherit;
+}
+
+.agent-modal-form input:focus,
+.agent-modal-form textarea:focus {
+  border-color: #465df1;
+  box-shadow: 0 0 0 4px rgba(70, 93, 241, 0.08);
+}
+
+.agent-modal-form button {
+  height: 52px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #3559f5, #4f6df7);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.agent-modal-note {
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #8b93a7;
+}
+
+@media (max-width: 520px) {
+  .agent-modal-card {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+
+  .agent-modal-head h3 {
+    font-size: 22px;
+  }
+
+  .agent-modal-agent {
+    align-items: flex-start;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+.cm-blur-shell {
+  filter: blur(7px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.cm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(15, 23, 42, 0.24);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.cm-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #dbe1ea;
+  border-radius: 20px;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
+  padding: 18px 18px 16px;
+}
+
+.cm-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: #f3f4f6;
+  color: #111827;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.cm-close:hover {
+  background: #e5e7eb;
+}
+
+.cm-head {
+  padding-right: 42px;
+  margin-bottom: 12px;
+}
+
+.cm-head h3 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  line-height: 1.15;
+  color: #111111;
+  font-weight: 700;
+}
+
+.cm-head p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #6b7280;
+}
+
+.cm-agent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.cm-agent img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.cm-agent-info h4 {
+  margin: 0 0 2px;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #111111;
+  font-weight: 700;
+}
+
+.cm-agent-info span {
+  display: block;
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.cm-agent-info a {
+  display: block;
+  font-size: 13px;
+  color: #3b5bff;
+  text-decoration: none;
+  line-height: 1.45;
+}
+
+.cm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cm-form input,
+.cm-form textarea {
+  width: 100%;
+  border: 1px solid #d9e0ea;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #111111;
+  font-size: 14px;
+  font-family: inherit;
+  padding: 12px 14px;
+  outline: none;
+}
+
+.cm-form input {
+  height: 48px;
+}
+
+.cm-form textarea {
+  height: 96px;
+  min-height: 96px;
+  max-height: 96px;
+  resize: none;
+  overflow-y: auto;
+  line-height: 1.45;
+}
+
+.cm-form input:focus,
+.cm-form textarea:focus {
+  border-color: #4c63f6;
+  box-shadow: 0 0 0 4px rgba(76, 99, 246, 0.08);
+}
+
+.cm-form button {
+  height: 48px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2f5cf5, #4d72f7);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cm-note {
+  margin: 10px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #8b93a7;
+}
+
+@media (max-width: 520px) {
+  .cm-overlay {
+    padding: 12px;
+    align-items: center;
+  }
+
+  .cm-card {
+    max-width: 100%;
+    max-height: 84vh;
+    border-radius: 16px;
+    padding: 16px 14px 14px;
+  }
+
+  .cm-head h3 {
+    font-size: 20px;
+  }
+
+  .cm-head p {
+    font-size: 12.5px;
+  }
+
+  .cm-agent {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .cm-agent img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cm-form {
+    gap: 8px;
+  }
+
+  .cm-form input {
+    height: 44px;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .cm-form textarea {
+    height: 84px;
+    min-height: 84px;
+    max-height: 84px;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .cm-form button {
+    height: 44px;
+    font-size: 13px;
+  }
+
+  .cm-note {
+    font-size: 11px;
+  }
+}

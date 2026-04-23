@@ -1,5 +1,6 @@
 "use client";
 // import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import {
@@ -377,14 +378,14 @@ const Page = () => {
               </p>
 
               <div className="dw-hero-actions">
-                <a href="#" className="dw-primary-btn">
+                <Link href="/buy" className="dw-primary-btn">
                   Explore Properties
                   <ArrowRight size={18} />
-                </a>
+                </Link>
 
-                <a href="#" className="dw-secondary-btn">
+                <Link href="/list-property" className="dw-secondary-btn">
                   List Your Property
-                </a>
+                </Link>
               </div>
 
               <div className="dw-hero-stats">
@@ -497,9 +498,9 @@ const Page = () => {
             <div className="dw-recommend-left">
               <h2>Get home recommendations</h2>
               <p>Sign in for a more personalized experience.</p>
-              <a href="#" className="dw-recommend-btn">
+              <Link href="/account?mode=signup" className="dw-recommend-btn">
                 Sign in
-              </a>
+              </Link>
             </div>
 
             <div className="dw-recommend-right">
@@ -567,10 +568,10 @@ const Page = () => {
                 Enter your address to review and compare agents.
               </p>
 
-              <a href="#" className="dw-agents-btn">
+              <Link href="/compare-agents" className="dw-agents-btn">
                 Compare agents
                 <span>→</span>
-              </a>
+              </Link>
             </div>
 
             <div className="dw-agents-right">
