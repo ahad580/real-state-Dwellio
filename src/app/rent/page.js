@@ -1,12 +1,10 @@
 "use client";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Search,
-  ArrowRight,
   ChevronLeft,
   ChevronRight,
-  MapPin,
   BedDouble,
   Bath,
   Square,
@@ -231,7 +229,15 @@ const rentTabs = Object.keys(rentTabData);
 
 export default function RentPage() {
   const [activeTab, setActiveTab] = useState("Popular");
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const sliderRefs = useRef({});
+
+  useEffect(() => {
+    document.body.style.overflow = isContactModalOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isContactModalOpen]);
 
   const scrollSlider = (sectionId, direction) => {
     const slider = sliderRefs.current[sectionId];
@@ -250,230 +256,297 @@ export default function RentPage() {
     });
   };
 
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+    alert("Your message has been sent.");
+    setIsContactModalOpen(false);
+  };
+
   return (
     <main className="rent-main-wrap">
-      <section className="rent-first-block">
-        <div className="rent-first-grid">
-          <div className="rent-first-copy">
-            <span className="rent-first-label">SMART RENTING EXPERIENCE</span>
-            <h1 className="rent-first-heading">
-              Rent with confidence, not confusion
-            </h1>
-            <p className="rent-first-para">
-              Discover apartments, condos, and homes across Texas with a more
-              polished rental experience. Better search, better value, and more
-              practical choices for everyday living.
-            </p>
+      <div className={isContactModalOpen ? "cm-blur-shell" : ""}>
+        <section className="rent-first-block">
+          <div className="rent-first-grid">
+            <div className="rent-first-copy">
+              <span className="rent-first-label">SMART RENTING EXPERIENCE</span>
+              <h1 className="rent-first-heading">
+                Rent with confidence, not confusion
+              </h1>
+              <p className="rent-first-para">
+                Discover apartments, condos, and homes across Texas with a more
+                polished rental experience. Better search, better value, and more
+                practical choices for everyday living.
+              </p>
 
-            <div className="rent-first-form">
-              <div className="rent-first-field">
-                <label>Location</label>
-                <input type="text" placeholder="Search city or area" />
+              <div className="rent-first-form">
+                <div className="rent-first-field">
+                  <label>Location</label>
+                  <input type="text" placeholder="Search city or area" />
+                </div>
+
+                <div className="rent-first-divider" />
+
+                <div className="rent-first-field">
+                  <label>Property Type</label>
+                  <input type="text" placeholder="Apartment, Condo, House" />
+                </div>
+
+                <div className="rent-first-divider" />
+
+                <div className="rent-first-field">
+                  <label>Budget</label>
+                  <input type="text" placeholder="Enter monthly budget" />
+                </div>
+
+                <button className="rent-first-submit" aria-label="Search rentals">
+                  <Search size={18} />
+                </button>
               </div>
 
-              <div className="rent-first-divider" />
+              <div className="rent-first-btns">
+              
 
-              <div className="rent-first-field">
-                <label>Property Type</label>
-                <input type="text" placeholder="Apartment, Condo, House" />
-              </div>
-
-              <div className="rent-first-divider" />
-
-              <div className="rent-first-field">
-                <label>Budget</label>
-                <input type="text" placeholder="Enter monthly budget" />
-              </div>
-
-              <button className="rent-first-submit" aria-label="Search rentals">
-                <Search size={18} />
-              </button>
-            </div>
-
-            <div className="rent-first-btns">
-              <a href="#" className="rent-first-primary-btn">
-                Explore Rentals
-                <ArrowRight size={16} />
-              </a>
-              <a href="#" className="rent-first-outline-btn">
-                Talk to an Agent
-              </a>
-            </div>
-          </div>
-
-          <div className="rent-first-right-panel">
-            <div className="rent-first-panel-box">
-              <div className="rent-first-panel-top">
-                <div className="rent-first-panel-chip">Verified rentals</div>
-                <div className="rent-first-panel-chip">Monthly options</div>
-              </div>
-
-              <div className="rent-first-panel-middle">
-                <div className="rent-first-stat-card">
-                  <div className="rent-first-stat-icon">
-                    <ShieldCheck size={18} />
-                  </div>
-                  <div>
-                    <h4>Verified listings</h4>
-                    <p>Trusted properties with cleaner discovery.</p>
-                  </div>
-                </div>
-
-                <div className="rent-first-stat-card">
-                  <div className="rent-first-stat-icon">
-                    <Wallet size={18} />
-                  </div>
-                  <div>
-                    <h4>Budget clarity</h4>
-                    <p>Smarter options matched to your monthly plan.</p>
-                  </div>
-                </div>
-
-                <div className="rent-first-stat-card">
-                  <div className="rent-first-stat-icon">
-                    <Clock3 size={18} />
-                  </div>
-                  <div>
-                    <h4>Move in ready</h4>
-                    <p>Fresh rental homes available right now.</p>
-                  </div>
-                </div>
-
-                <div className="rent-first-stat-card">
-                  <div className="rent-first-stat-icon">
-                    <Building2 size={18} />
-                  </div>
-                  <div>
-                    <h4>Top neighborhoods</h4>
-                    <p>Better city coverage across Texas.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rent-first-panel-bottom">
-                <div className="rent-first-number-card">
-                  <strong>15K+</strong>
-                  <span>Rental listings</span>
-                </div>
-
-                <div className="rent-first-number-card">
-                  <strong>7.8K+</strong>
-                  <span>Happy renters</span>
-                </div>
-
-                <div className="rent-first-number-card">
-                  <strong>400+</strong>
-                  <span>Trusted agents</span>
-                </div>
+                <button
+                  type="button"
+                  className="rent-first-outline-btn"
+                  onClick={() => setIsContactModalOpen(true)}
+                >
+                  Talk to an Agent
+                </button>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {rentSliderSections.map((section) => (
-        <section className="rent-slider-block" key={section.id}>
-          <div className="rent-slider-head">
-            <div className="rent-slider-copy">
-              <h2>{section.title}</h2>
-              <p>{section.subtitle}</p>
-            </div>
+            <div className="rent-first-right-panel">
+              <div className="rent-first-panel-box">
+                <div className="rent-first-panel-top">
+                  <div className="rent-first-panel-chip">Verified rentals</div>
+                  <div className="rent-first-panel-chip">Monthly options</div>
+                </div>
 
-            <div className="rent-slider-controls">
-              <button
-                className="rent-slider-control-btn"
-                type="button"
-                onClick={() => scrollSlider(section.id, "prev")}
-                aria-label="Scroll left"
-              >
-                <ChevronLeft size={16} />
-              </button>
-
-              <button
-                className="rent-slider-control-btn"
-                type="button"
-                onClick={() => scrollSlider(section.id, "next")}
-                aria-label="Scroll right"
-              >
-                <ChevronRight size={16} />
-              </button>
-            </div>
-          </div>
-
-          <div
-            className="rent-slider-row"
-            ref={(el) => {
-              sliderRefs.current[section.id] = el;
-            }}
-          >
-            {section.items.map((item, index) => (
-              <Link
-                href={`/property/${item.title.toLowerCase().replaceAll(" ", "-")}`}
-                key={`${section.id}-${index}`}
-                className="rent-card-link"
-              >
-                <article className="rent-card-item">
-                  <div className="rent-card-thumb">
-                    <img src={item.image} alt={item.title} />
-                    <span className="rent-card-tag">Popular choice</span>
-                    <button
-                      className="rent-card-heart"
-                      type="button"
-                      aria-label="Save rental"
-                    >
-                      <Heart size={16} />
-                    </button>
-                  </div>
-
-                  <div className="rent-card-body">
-                    <h3>{item.title}</h3>
-                    <p className="rent-card-place">{item.location}</p>
-                    <p className="rent-card-rate">{item.price}</p>
-                    <div className="rent-card-details">
-                      <span>
-                        <BedDouble size={14} /> {item.beds}
-                      </span>
-                      <span>
-                        <Bath size={14} /> {item.baths}
-                      </span>
-                      <span>
-                        <Square size={14} /> {item.area}
-                      </span>
+                <div className="rent-first-panel-middle">
+                  <div className="rent-first-stat-card">
+                    <div className="rent-first-stat-icon">
+                      <ShieldCheck size={18} />
+                    </div>
+                    <div>
+                      <h4>Verified listings</h4>
+                      <p>Trusted properties with cleaner discovery.</p>
                     </div>
                   </div>
-                </article>
-              </Link>
-            ))}
+
+                  <div className="rent-first-stat-card">
+                    <div className="rent-first-stat-icon">
+                      <Wallet size={18} />
+                    </div>
+                    <div>
+                      <h4>Budget clarity</h4>
+                      <p>Smarter options matched to your monthly plan.</p>
+                    </div>
+                  </div>
+
+                  <div className="rent-first-stat-card">
+                    <div className="rent-first-stat-icon">
+                      <Clock3 size={18} />
+                    </div>
+                    <div>
+                      <h4>Move in ready</h4>
+                      <p>Fresh rental homes available right now.</p>
+                    </div>
+                  </div>
+
+                  <div className="rent-first-stat-card">
+                    <div className="rent-first-stat-icon">
+                      <Building2 size={18} />
+                    </div>
+                    <div>
+                      <h4>Top neighborhoods</h4>
+                      <p>Better city coverage across Texas.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rent-first-panel-bottom">
+                  <div className="rent-first-number-card">
+                    <strong>15K+</strong>
+                    <span>Rental listings</span>
+                  </div>
+
+                  <div className="rent-first-number-card">
+                    <strong>7.8K+</strong>
+                    <span>Happy renters</span>
+                  </div>
+
+                  <div className="rent-first-number-card">
+                    <strong>400+</strong>
+                    <span>Trusted agents</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
-      ))}
-      <section className="rent-tab-block">
-        <div className="rent-tab-inner">
-          <h2 className="rent-tab-title">Inspiration for future getaways</h2>
 
-          <div className="rent-tab-row">
-            {rentTabs.map((tab) => (
-              <button
-                key={tab}
-                className={activeTab === tab ? "active" : ""}
-                onClick={() => setActiveTab(tab)}
-                onMouseEnter={() => setActiveTab(tab)}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-
-          <div className="rent-tab-grid">
-            {rentTabData[activeTab].map((item, index) => (
-              <div className="rent-tab-item" key={`${activeTab}-${index}`}>
-                <h4>{item.title}</h4>
-                <p>{item.subtitle}</p>
+        {rentSliderSections.map((section) => (
+          <section className="rent-slider-block" key={section.id}>
+            <div className="rent-slider-head">
+              <div className="rent-slider-copy">
+                <h2>{section.title}</h2>
+                <p>{section.subtitle}</p>
               </div>
-            ))}
+
+              <div className="rent-slider-controls">
+                <button
+                  className="rent-slider-control-btn"
+                  type="button"
+                  onClick={() => scrollSlider(section.id, "prev")}
+                  aria-label="Scroll left"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+
+                <button
+                  className="rent-slider-control-btn"
+                  type="button"
+                  onClick={() => scrollSlider(section.id, "next")}
+                  aria-label="Scroll right"
+                >
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+            </div>
+
+            <div
+              className="rent-slider-row"
+              ref={(el) => {
+                sliderRefs.current[section.id] = el;
+              }}
+            >
+              {section.items.map((item, index) => (
+                <Link
+                  href={`/property/${item.title.toLowerCase().replaceAll(" ", "-")}`}
+                  key={`${section.id}-${index}`}
+                  className="rent-card-link"
+                >
+                  <article className="rent-card-item">
+                    <div className="rent-card-thumb">
+                      <img src={item.image} alt={item.title} />
+                      <span className="rent-card-tag">Popular choice</span>
+                      <button
+                        className="rent-card-heart"
+                        type="button"
+                        aria-label="Save rental"
+                      >
+                        <Heart size={16} />
+                      </button>
+                    </div>
+
+                    <div className="rent-card-body">
+                      <h3>{item.title}</h3>
+                      <p className="rent-card-place">{item.location}</p>
+                      <p className="rent-card-rate">{item.price}</p>
+                      <div className="rent-card-details">
+                        <span>
+                          <BedDouble size={14} /> {item.beds}
+                        </span>
+                        <span>
+                          <Bath size={14} /> {item.baths}
+                        </span>
+                        <span>
+                          <Square size={14} /> {item.area}
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ))}
+
+        <section className="rent-tab-block">
+          <div className="rent-tab-inner">
+            <h2 className="rent-tab-title">Inspiration for future getaways</h2>
+
+            <div className="rent-tab-row">
+              {rentTabs.map((tab) => (
+                <button
+                  key={tab}
+                  className={activeTab === tab ? "active" : ""}
+                  onClick={() => setActiveTab(tab)}
+                  onMouseEnter={() => setActiveTab(tab)}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+
+            <div className="rent-tab-grid">
+              {rentTabData[activeTab].map((item, index) => (
+                <div className="rent-tab-item" key={`${activeTab}-${index}`}>
+                  <h4>{item.title}</h4>
+                  <p>{item.subtitle}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {isContactModalOpen && (
+        <div
+          className="cm-overlay"
+          onClick={() => setIsContactModalOpen(false)}
+        >
+          <div
+            className="cm-card"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="cm-close"
+              onClick={() => setIsContactModalOpen(false)}
+              aria-label="Close form"
+            >
+              ×
+            </button>
+
+            <div className="cm-head">
+              <h3>Contact Agent</h3>
+              <p>
+                Talk with our property expert for pricing, visits, and rental guidance.
+              </p>
+            </div>
+
+            <div className="cm-agent">
+              <img
+                src="https://randomuser.me/api/portraits/men/45.jpg"
+                alt="Bryan Swan"
+              />
+              <div className="cm-agent-info">
+                <h4>Bryan Swan</h4>
+                <span>Rental Expert</span>
+                <a href="tel:+12145550144">(214) 555-0144</a>
+                <a href="mailto:bryan@dwellio.com">bryan@dwellio.com</a>
+              </div>
+            </div>
+
+            <form className="cm-form" onSubmit={handleContactSubmit}>
+              <input type="text" placeholder="Full Name" />
+              <input type="email" placeholder="Email Address" />
+              <input type="text" placeholder="Phone Number" />
+              <textarea
+                rows="3"
+                placeholder="I'm interested in renting a property and would like to talk to an agent."
+              />
+              <button type="submit">Send Message</button>
+            </form>
+
+            <p className="cm-note">
+              Your information is secure and will not be shared.
+            </p>
           </div>
         </div>
-      </section>
+      )}
     </main>
   );
 }

@@ -339,7 +339,7 @@ export default function SellPage() {
               </button>
             </div>
 
-            <div className="sell-first-btns">
+            {/* <div className="sell-first-btns">
               <a href="#" className="sell-first-primary-btn">
                 Start Selling
                 <ArrowRight size={16} />
@@ -347,7 +347,7 @@ export default function SellPage() {
               <a href="#" className="sell-first-outline-btn">
                 Talk to an Expert
               </a>
-            </div>
+            </div> */}
           </div>
 
           <div className="sell-first-media">

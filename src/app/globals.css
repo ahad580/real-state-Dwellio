@@ -5707,7 +5707,30 @@ a {
   max-width: 560px;
   margin: 0 0 28px;
 }
+/* add more styling */
+.dw-nav-link {
+  text-decoration: none;
+  color: #555555;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+  white-space: nowrap;
+}
 
+.dw-nav-link:hover {
+  background: blue;
+  color: #f1f1f1;
+}
+
+.dw-nav-link.active {
+  background: #111111;
+  color: #ffffff;
+}
 .sell-first-form {
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -7523,7 +7546,7 @@ a {
     padding-top: 86px !important;
   }
 
- 
+
   .dw-hero,
   .dw-recommend,
   .dw-agents,
@@ -7935,7 +7958,7 @@ a {
     text-align: center !important;
   }
 
-   
+
   .rent-first-block {
     padding-top: 8px !important;
   }
@@ -8047,7 +8070,7 @@ a {
     grid-template-columns: 1fr !important;
   }
 
-   
+
   .sell-first-block {
     padding-top: 8px !important;
   }
@@ -8256,7 +8279,7 @@ a {
     justify-content: center !important;
   }
 
-  
+
   .pd-shell,
   .pd-topbar-inner {
     padding-left: 0 !important;
@@ -8420,6 +8443,7 @@ a {
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06) !important;
   }
 }
+
 /* 7th day */
 .auth-page {
   min-height: 100vh;
@@ -9067,4 +9091,87 @@ a {
   .cm-note {
     font-size: 11px;
   }
+}
+
+.ca-page {
+  padding: 200px 20px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.ca-hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.ca-hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.ca-hero p {
+  font-size: 15px;
+  color: #6b7280;
+}
+
+.ca-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.ca-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+}
+
+.ca-card:hover {
+  transform: translateY(-6px);
+}
+
+.ca-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.ca-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+.ca-company {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.ca-stats {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+  font-size: 13px;
+  color: #374151;
+}
+
+.ca-rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f59e0b;
 }

@@ -476,9 +476,9 @@ export default function DwellioBuyPage() {
                 We match you with top local real estate experts who understand
                 your market and help you close with confidence.
               </p>
-              <button className="db-primary-btn" type="button">
+              <Link href="/compare-agents" className="db-primary-btn">
                 Compare agents <ArrowRight size={16} />
-              </button>
+              </Link>
             </div>
 
             <div className="db-agent-list">

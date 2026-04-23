@@ -43,6 +43,8 @@ export default function Navbar() {
 
   const closeMenu = () => setMobileMenuOpen(false);
 
+  const isActive = (href) => pathname === href;
+
   return (
     <>
       <header className={`dw-navbar ${isScrolled ? "dw-navbar-scrolled" : ""}`}>
@@ -53,22 +55,34 @@ export default function Navbar() {
             </Link>
 
             <nav className="dw-nav-links">
-              <Link href="/" className="dw-nav-link">
+              <Link
+                href="/"
+                className={`dw-nav-link ${isActive("/") ? "active" : ""}`}
+              >
                 <House size={18} />
                 <span>Home</span>
               </Link>
 
-              <Link href="/buy" className="dw-nav-link">
+              <Link
+                href="/buy"
+                className={`dw-nav-link ${isActive("/buy") ? "active" : ""}`}
+              >
                 <Building2 size={18} />
                 <span>Buy</span>
               </Link>
 
-              <Link href="/rent" className="dw-nav-link">
+              <Link
+                href="/rent"
+                className={`dw-nav-link ${isActive("/rent") ? "active" : ""}`}
+              >
                 <MapPin size={18} />
                 <span>Rent</span>
               </Link>
 
-              <Link href="/sell" className="dw-nav-link">
+              <Link
+                href="/sell"
+                className={`dw-nav-link ${isActive("/sell") ? "active" : ""}`}
+              >
                 <HeartHandshake size={18} />
                 <span>Sell</span>
               </Link>
@@ -136,7 +150,6 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* overlay */}
       <div
         className={`dw-mobile-overlay ${
           mobileMenuOpen ? "dw-mobile-overlay-show" : ""
@@ -144,7 +157,6 @@ export default function Navbar() {
         onClick={closeMenu}
       />
 
-      {/* drawer */}
       <aside
         className={`dw-mobile-drawer ${
           mobileMenuOpen ? "dw-mobile-drawer-open" : ""
@@ -166,12 +178,27 @@ export default function Navbar() {
         </div>
 
         <nav className="dw-mobile-nav">
-          <Link href="/">Home</Link>
-          <Link href="/buy">Buy</Link>
-          <Link href="/rent">Rent</Link>
-          <Link href="/sell">Sell</Link>
-          <Link href="/list-property">List Property</Link>
-          <Link href="/account">Account</Link>
+          <Link href="/" className={isActive("/") ? "active" : ""}>
+            Home
+          </Link>
+          <Link href="/buy" className={isActive("/buy") ? "active" : ""}>
+            Buy
+          </Link>
+          <Link href="/rent" className={isActive("/rent") ? "active" : ""}>
+            Rent
+          </Link>
+          <Link href="/sell" className={isActive("/sell") ? "active" : ""}>
+            Sell
+          </Link>
+          <Link
+            href="/list-property"
+            className={isActive("/list-property") ? "active" : ""}
+          >
+            List Property
+          </Link>
+          <Link href="/account" className={isActive("/account") ? "active" : ""}>
+            Account
+          </Link>
         </nav>
       </aside>
     </>
