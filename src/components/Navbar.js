@@ -50,8 +50,8 @@ export default function Navbar() {
       <header className={`dw-navbar ${isScrolled ? "dw-navbar-scrolled" : ""}`}>
         <div className="dw-navbar-shell">
           <div className="dw-nav-inner">
-            <Link href="/" className="dw-logo" onClick={closeMenu}>
-              <img src="/logo-01.png" alt="Dwellio" />
+            <Link href="/login" className="dw-logo" onClick={closeMenu}>
+              <img src="/lgtst.png" alt="Dwellio" />
             </Link>
 
             <nav className="dw-nav-links">
