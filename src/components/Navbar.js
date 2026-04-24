@@ -51,7 +51,7 @@ export default function Navbar() {
         <div className="dw-navbar-shell">
           <div className="dw-nav-inner">
             <Link href="/login" className="dw-logo" onClick={closeMenu}>
-              <img src="/lgtst.png" alt="Dwellio" />
+              <img src="/logo-01.png" alt="Dwellio" />
             </Link>
 
             <nav className="dw-nav-links">
